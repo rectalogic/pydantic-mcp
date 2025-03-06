@@ -1,16 +1,15 @@
-# Copyright (C) 2024 Andrew Wason
+# Copyright (C) 2025 Andrew Wason
 # SPDX-License-Identifier: MIT
 
 import asyncio
 import pathlib
 import sys
-import typing as t
 
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
 from pydantic_ai import Agent, Tool
 
-from pydantic_mcp import MCPToolkit
+from pydantic_mcp import Toolkit
 
 
 async def run(tools: list[Tool], prompt: str) -> str:
@@ -26,7 +25,7 @@ async def main(prompt: str) -> None:
     )
     async with stdio_client(server_params) as (read, write):
         async with ClientSession(read, write) as session:
-            toolkit = MCPToolkit()
+            toolkit = Toolkit()
             tools = await toolkit.initialize(session)
             response = await run(tools, prompt)
             print(response)
