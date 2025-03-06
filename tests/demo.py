@@ -7,15 +7,9 @@ import sys
 
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
-from pydantic_ai import Agent, Tool
+from pydantic_ai import Agent
 
 from pydantic_mcp import Toolkit
-
-
-async def run(tools: list[Tool], prompt: str) -> str:
-    agent = Agent(model="groq:llama-3.1-8b-instant", tools=tools)  # requires GROQ_API_KEY
-    result = await agent.run(prompt)
-    return result.data
 
 
 async def main(prompt: str) -> None:
@@ -27,8 +21,9 @@ async def main(prompt: str) -> None:
         async with ClientSession(read, write) as session:
             toolkit = Toolkit()
             tools = await toolkit.initialize(session)
-            response = await run(tools, prompt)
-            print(response)
+            agent = Agent(model="groq:llama-3.1-8b-instant", tools=tools)  # requires GROQ_API_KEY
+            result = await agent.run(prompt)
+            print(result.data)
 
 
 if __name__ == "__main__":
