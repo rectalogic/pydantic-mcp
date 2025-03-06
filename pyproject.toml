@@ -1,0 +1,81 @@
+[project]
+name = "pydantic-mcp"
+version = "0.1.0"
+description = "Model Context Protocol tool calling support for Pydantic AI"
+readme = "README.md"
+authors = [{ name = "Andrew Wason", email = "rectalogic@rectalogic.com" }]
+requires-python = ">=3.10"
+dependencies = [
+    "mcp~=1.0",
+    "pydantic~=2.10",
+    "pydantic-ai>=0.0.35",
+    "typing-extensions~=4.12",
+]
+classifiers = ["License :: OSI Approved :: MIT License"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "pytest~=8.3",
+    "pytest-asyncio~=0.24",
+    "pytest-socket~=0.7",
+    "ruff~=0.8",
+    "mypy~=1.13",
+    "pydantic-ai-slim[groq]",
+]
+
+[project.urls]
+Repository = "https://github.com/rectalogic/pydantic-mcp"
+Issues = "https://github.com/rectalogic/pydantic-mcp/issues"
+Related = "https://modelcontextprotocol.io/"
+
+[tool.ruff]
+target-version = "py310"
+line-length = 120
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.ruff.lint]
+select = [
+    # flake8-2020
+    "YTT",
+    # flake8-bandit
+    "S",
+    # flake8-bugbear
+    "B",
+    # flake8-builtins
+    "A",
+    # Pyflakes
+    "F",
+    # Pycodestyle
+    "E",
+    "W",
+    # isort
+    "I",
+    # flake8-no-pep420
+    "INP",
+    # pyupgrade
+    "UP",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S", "INP001"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "class"
+
+[tool.mypy]
+disallow_untyped_defs = true
+warn_unused_configs = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+strict_equality = true
+no_implicit_optional = true
+show_error_codes = true
+files = ["src/**/*.py", "tests/demo.py"]
+plugins = "pydantic.mypy"
