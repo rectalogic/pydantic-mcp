@@ -28,7 +28,7 @@ class Toolkit:
             tool_def.parameters_json_schema = mcp_tool.inputSchema
             return tool_def
 
-        async def execute(**kwargs) -> t.Any:
+        async def execute(**kwargs: dict[str, t.Any]) -> t.Any:
             return await session.call_tool(mcp_tool.name, arguments=kwargs)
 
         return Tool(
