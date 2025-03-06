@@ -10,7 +10,7 @@ to get a list of `pydantic_mcp.Tool` instances for the supported tools.
 
 Example:
 
-XXX
+https://github.com/rectalogic/pydantic-mcp/blob/09ddba23118e74003821dd996b094e8b92f79a36/tests/demo.py#L15-L26
 
 ## Demo
 
