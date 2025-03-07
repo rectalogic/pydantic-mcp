@@ -5,7 +5,7 @@
 [Model Context Protocol](https://modelcontextprotocol.io) tool calling support for [Pydantic AI](https://ai.pydantic.dev/).
 
 Just create an `mcp.ClientSession` and call `tools = await mcptools(session)`
-to get a list of `pydantic_mcp.Tool` instances for the supported tools.
+to get a list of `pydantic_ai.Tool` instances for the supported tools.
 
 Example:
 

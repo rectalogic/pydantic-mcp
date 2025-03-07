@@ -1,6 +1,6 @@
 [project]
 name = "pydantic-mcp"
-version = "0.1.0"
+version = "0.1.1"
 description = "Model Context Protocol tool calling support for Pydantic AI"
 readme = "README.md"
 authors = [{ name = "Andrew Wason", email = "rectalogic@rectalogic.com" }]
