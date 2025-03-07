@@ -7,7 +7,7 @@ import pytest
 from mcp import ClientSession, ListToolsResult, Tool
 from mcp.types import CallToolResult, TextContent
 
-from pydantic_mcp import Toolkit
+from pydantic_mcp import mcptools
 
 
 @pytest.fixture
@@ -42,6 +42,5 @@ def session(request):
 
 @pytest.fixture
 async def tools(session):
-    toolkit = Toolkit()
-    yield await toolkit.initialize(session)
+    yield await mcptools(session)
     session.call_tool.assert_called_with("read_file", arguments={"path": "a"})

@@ -2,10 +2,9 @@
 
 ![PyPI - Version](https://img.shields.io/pypi/v/pydantic-mcp)
 
-[Model Context Protocol](https://modelcontextprotocol.io) tool calling support in [Pydantic AI](https://ai.pydantic.dev/).
+[Model Context Protocol](https://modelcontextprotocol.io) tool calling support for [Pydantic AI](https://ai.pydantic.dev/).
 
-Create a `pydantic_mcp.Toolkit` and initialize it
-`tools = await toolkit.initialize(session)` with an `mcp.ClientSession`
+Just create an `mcp.ClientSession` and call `tools = await mcptools(session)`
 to get a list of `pydantic_mcp.Tool` instances for the supported tools.
 
 Example:
