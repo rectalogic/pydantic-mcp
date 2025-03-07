@@ -23,8 +23,7 @@ def _initialize_tool(session: ClientSession, mcp_tool: MCPTool) -> Tool:
         tool_def.parameters_json_schema = mcp_tool.inputSchema
         return tool_def
 
-    # Cannot type hint kwargs https://github.com/pydantic/pydantic-ai/issues/1077
-    async def execute_tool(**kwargs) -> t.Any:  # type: ignore[no-untyped-def]
+    async def execute_tool(**kwargs: t.Any) -> t.Any:
         return await session.call_tool(mcp_tool.name, arguments=kwargs)
 
     return Tool(
