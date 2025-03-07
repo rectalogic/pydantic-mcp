@@ -18,6 +18,6 @@ You can run the demo against [Groq](https://groq.com/) `llama-3.1-8b-instant`:
 $ export GROQ_API_KEY=xxx
 $ uv run tests/demo.py "Read and summarize the file ./LICENSE"
 Secure MCP Filesystem Server running on stdio
-Allowed directories: [ '/users/aw/projects/rectalogic/langchain-mcp' ]
+Allowed directories: [ '/users/aw/projects/rectalogic/pydantic-mcp' ]
 The file ./LICENSE is a MIT License agreement. It states that the software is provided "as is" without warranty and that the authors and copyright holders are not liable for any claims, damages, or other liability arising from the software or its use.
 ```
