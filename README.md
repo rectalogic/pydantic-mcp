@@ -1,5 +1,7 @@
 # pydantic-mcp
 
+**PydanticAI now includes support for [MCP servers](https://ai.pydantic.dev/mcp/), use that instead**
+
 ![PyPI - Version](https://img.shields.io/pypi/v/pydantic-mcp)
 
 [Model Context Protocol](https://modelcontextprotocol.io) tool calling support for [Pydantic AI](https://ai.pydantic.dev/).
